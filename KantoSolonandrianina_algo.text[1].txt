@@ -1,0 +1,59 @@
+﻿Algorithme f
+    Variables
+        a, b, c: booléen
+    Début
+        // Fonction booléenne f(a, b, c)
+        retourner (a ET b) OU (b ET NON c) OU (a ET NON c)
+    Fin
+
+Algorithme mode_interactif
+    Variables
+        a, b, c, resultat: booléen
+    Début
+        // Mode interactif
+        écrire "Mode interactif :"
+        écrire "Entrez la valeur de a (True/False) : "
+        lire a
+        écrire "Entrez la valeur de b (True/False) : "
+        lire b
+        écrire "Entrez la valeur de c (True/False) : "
+        lire c
+        resultat ← f(a, b, c)
+        écrire "Résultat de f(a, b, c) :", resultat
+    Fin
+
+Algorithme table_de_verite
+    Début
+        // Table de vérité
+        écrire "\nTable de vérité de f(a, b, c):"
+        écrire "a | b | c | f(a, b, c)"
+        écrire "------------------------"
+        Pour chaque combinaison dans [Vrai, Faux]^3 Faire
+            a, b, c ← combinaison
+            resultat ← f(a, b, c)
+            écrire a, "|", b, "|", c, "|", resultat
+        Fin Pour
+    Fin
+
+Algorithme tableau_de_Karnaugh
+    Début
+        // Tableau de Karnaugh
+        écrire "\nTableau de Karnaugh :"
+        écrire "      b'c'  bc  bc'  b'c"
+        écrire "   +----------------------"
+        Pour chaque valeur a dans [Vrai, Faux] Faire
+            Pour chaque valeur b dans [Vrai, Faux] Faire
+                écrire "a=", a, "|", 
+                Pour chaque valeur c dans [Vrai, Faux] Faire
+                    resultat ← f(a, b, c)
+                    écrire " ", resultat, "  "
+                Fin Pour
+                écrire ""
+            Fin Pour
+        Fin Pour
+    Fin
+
+// Exécution du code interactif
+mode_interactif()
+table_de_verite()
+tableau_de_Karnaugh()
